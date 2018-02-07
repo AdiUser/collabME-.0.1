@@ -3,7 +3,7 @@
 	session_start();
 	
 	if(session_destroy())
-		header("location: ../login");
+		header("location: ../login.php");
 	else{
 		unset($_SESSION['username']);
 	}

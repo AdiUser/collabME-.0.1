@@ -1,10 +1,12 @@
 <?php
 include ('header_visitor.php');
 include ('clogs/db_connect.php');
+session_start();
+//echo $_SERVER['REQUEST_METHOD'];
 $sql = $username = $pass = $full_name = $year = $college = $save_error = null;
 $table = 'register';
 
-if ($_SERVER['REQUEST_METHOD']== 'POST'){
+if ($_SERVER['REQUEST_METHOD']=='POST'){
 
   if (isset($_POST['username']) && isset($_POST['name']) &&
           isset($_POST['college']) && isset($_POST['year']) &&
@@ -79,7 +81,8 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
                       '$branch','$sem','$year', '$path')";
                       echo $sql;
           if (mysqli_query($connect_link, $sql)){
-            header('location: login');
+		  echo 'connected';
+            header('location: login.php');
             die();
           }            
           else
@@ -90,10 +93,13 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
   
 }
   
-}else
-  echo 'isset() not set';
+}
+else
+{  
+echo 'isset() not set';
 mysqli_close($connect_link);
- ?>
+}
+?>
 <div class="container-fluid " >
   <div class="row ">
         <div class="col-sm-12">

@@ -2,7 +2,7 @@
 session_start();
 if($_SESSION['is_logged_in'] != 1){
     
-    header('location: ../login');
+    header('location: ../login.php');
     die();
   }
 include ('db_connect.php');
@@ -17,7 +17,7 @@ if (isset($_GET['project_id']) && isset($_GET['request_user'])){
 
 	$status_ = mysqli_query($connect_link, $sql);
 	if ($status_){
-		header('location: ../profile');
+		header('location: ../profile.php');
 		die();
 	} 
 	else

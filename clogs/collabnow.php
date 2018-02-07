@@ -4,7 +4,7 @@
 
   if($_SESSION['is_logged_in'] != 1){
     
-    header('location: login');
+    header('location: ../login.php');
     die();
   }
   	$username = $_SESSION['username'];
